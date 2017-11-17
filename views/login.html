@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script>
+			$('document').ready(() => {
+				var currentTab = 0; // Current tab is set to be the first tab (0)
+				showTab(currentTab); // Display the crurrent tab
+				function showTab(n) {
+					// This function will display the specified tab of the form...
+					var x = document.getElementsByClassName("tab");
+					x[n].style.display = "block";
+				}
+				$('#token').keyup((e) => {
+					if (e.keyCode == 13) {
+						axios({
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							method: 'post',
+							url: 'http://193.70.2.23:3001/login?returnUrl=\'/\'',
+							data: JSON.stringify({
+								token: $('#token').val(),
+							})
+						})
+						.then(function (response) {
+							location.href='http://193.70.2.23:3001/game?token='+response.data;
+
+						})
+						.catch(function (error) {
+							console.log(error);
+						});
+					}
+				});
+			})
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="login.css">
+	</head>
+	<body>
+		<div id="regForm">
+			<h1>Provide secret token</h1>
+			<div class="tab">Auth:
+				<p><input id ="token" placeholder="Secret token..." oninput="this.className = ''" name="uname"></p>
+			</div>
+			<!-- Circles which indicates the steps of the form: -->
+			<div style="text-align:center;margin-top:40px;">
+				<span class="step"></span>
+			</div>
+		</div>
+	</body>
+</html>

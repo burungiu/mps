@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tower Defence</title>
+		<link rel="stylesheet" type="text/css" href="sidebar.css">
+		<link rel="stylesheet" type="text/css" href="body.css">
+		<link rel="stylesheet" type="text/css" href="spinner.css">
+		<link rel="stylesheet" type="text/css" href="tower.css">
+		<link rel="stylesheet" type="text/css" href="loading.css">
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="client.js"></script>
+	</head>
+
+	<body onresize="$('#loading').css('display','block'),testFunction()" onload="setTimeout(testFunction,10)">
+		<!-- This div will apear only when page is not ready -->
+		<div id="not-ready" style="font-size:largest;">
+			<div class="spinner">
+				<h1 id="not-ready-message">We are preparing the page for you, please wait...</h1>
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+			</div>
+		</div>
+		<!-- End page not ready div -->
+
+		<div id="body" style="display:none;">
+
+			<div style="float:left; display: inline-block;">
+				<canvas id="game_zone">Your browser doesn't support canvas</canvas>
+			</div>
+			<div id="loading" style="display: none" class="loading style-2"><div class="loading-wheel"></div></div>
+				<div id="tower_zone" style="float:left; display:inline-block;">
+					<img src="images/tower2.png" id="tw1" class="piece tower1 tower_zone_piece" dragable="true">
+					<span style="display: block; font-size: x-large;"> 15$</span>
+					<hr>
+					<img src="images/tower1.png" id="tw2" class="piece tower2 tower_zone_piece" dragable="true">
+					<span style="display: block; font-size: x-large;"> 30$</span>
+					<hr>
+					<img src="images/tower3.png" id="tw3" class="piece tower3 tower_zone_piece">
+					<span style="display: block; font-size: x-large;"> 50$</span>
+					<hr>
+					<img widht="70px" src="images/sell.png" id="destroy" class="piece destroy tower_zone_piece">
+					<span style="display: block; font-size: x-large;"> Sell</span>
+				</div>
+				<button id="start_stop">Start/Stop</button><br>
+				<button id="restart_game">Restart game</button><br>
+				<label id="scor"></label><br>
+				<label id="money"></label>
+		</div>
+	</body>
+</html>

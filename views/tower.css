@@ -1,0 +1,38 @@
+#tower_zone {
+	background-image: url('images/tower_zone.jpg');
+	background-repeat: no-repeat;
+	width: 210px;
+	height: 800px;
+	align-items: center;
+	padding-top: 50px;
+	text-align: center;
+	background-size: contain;
+	/*padding: 1px*/
+}
+.tower1 {
+	vertical-align: middle;
+	margin: auto;
+
+}
+#game_zone { 
+	float: left;
+}
+
+#game_zone {
+	/*padding: 10px*/
+}
+
+.tower_zone_piece {
+	display:block;
+	margin: auto;
+}
+
+hr {
+	width: 80px;
+	size: 5px;
+}
+
+.piece {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
